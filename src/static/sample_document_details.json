@@ -1,0 +1,6 @@
+{
+    "id": 1,
+    "type" : "Standard",
+    "description": "To be included as part of the Adult Admission Package. To be completed by doctors.",
+    "allowed_users": [1, 2, 3]
+}
