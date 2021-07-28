@@ -23,7 +23,9 @@ const SelectField = ({ name = "", onChange, options = [], ...rest }) => {
     <div className="field">
       <select {...rest} name={name} onChange={onChange}>
         {options.map(([key, value]) => (
-          <option value={key}>{value}</option>
+          <option key={key} value={key}>
+            {value}
+          </option>
         ))}
       </select>
     </div>
