@@ -45,3 +45,9 @@ body {
 .content {
   margin-top: 50px;
 }
+
+button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}

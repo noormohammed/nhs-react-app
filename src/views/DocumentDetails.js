@@ -13,11 +13,17 @@ const DocumentDetails = ({ mode }) => {
     // Document details can be fetched / pulled here from an API
     // For the sake this test, we are fetching from a json file
     const getDocumentDetails = () => {
-      setDocumentInfo({
-        ...documentInfo,
-        ...SampleDocumentDetails,
-        mode: mode,
-      });
+      if (!documentInfo) {
+        setDocumentInfo({
+          ...SampleDocumentDetails,
+          mode: mode,
+        });
+      } else {
+        setDocumentInfo({
+          ...documentInfo,
+          mode: mode,
+        });
+      }
     };
 
     getDocumentDetails();

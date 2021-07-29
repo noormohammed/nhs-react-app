@@ -10,7 +10,9 @@ const Form = ({ children, onSubmit, submitButtonName = "" }) => {
   return (
     <form className="form" onSubmit={onSubmit}>
       <fieldset>{children}</fieldset>
-      <button>{submitButtonName || "Submit"}</button>
+      <div style={{ textAlign: "center" }}>
+        <button type="submit">{submitButtonName || "Submit"}</button>
+      </div>
     </form>
   );
 };

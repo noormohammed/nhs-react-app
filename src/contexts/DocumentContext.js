@@ -12,7 +12,7 @@ const DocumentContextProvider = ({ children }) => {
   const [documentInfo, setDocumentInfo] = useState(
     window.localStorage.getItem("document_info")
       ? JSON.parse(window.localStorage.getItem("document_info"))
-      : { type: "", description: "", allowed_users: [], mode: "read-only" }
+      : null
   );
 
   const isMountedRef = useRef(null);
