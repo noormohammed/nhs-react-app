@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import DocumentDetails from "views/DocumentDetails";
 import DocumentMenu from "views/DocumentMenu";
+import EditField from "views/EditField";
 
 const Routes = () => {
   return (
@@ -15,6 +16,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/document-edit">
         <DocumentDetails mode="edit" />
+      </Route>
+      <Route exact path="/edit-field">
+        <EditField />
       </Route>
       {/* <Route path="/documentMenu">
         <DocumentMenu />

@@ -8,7 +8,7 @@ import React from "react";
 const TextAreaField = ({ name = "", value = "", onChange, ...rest }) => {
   return (
     <div className="field">
-      <textarea name={name} onChange={onChange} value={value} {...rest}></textarea>
+      <textarea name={name} onChange={onChange} value={value} {...rest} />
     </div>
   );
 };
@@ -18,13 +18,13 @@ const TextAreaField = ({ name = "", value = "", onChange, ...rest }) => {
  * @param {*} object list of select attributes
  * @returns HTML for select element with label
  */
-const SelectField = ({ name = "", onChange, options = [], ...rest }) => {
+const SelectField = ({ name = "", value = "", onChange, options = [], ...rest }) => {
   return (
     <div className="field">
-      <select {...rest} name={name} onChange={onChange}>
-        {options.map(([key, value]) => (
-          <option key={key} value={key}>
-            {value}
+      <select name={name} defaultValue={value} onChange={onChange} {...rest}>
+        {options?.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.name}
           </option>
         ))}
       </select>

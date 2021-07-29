@@ -1,5 +1,5 @@
 // import logo from "./logo.svg";
-import "./App.css";
+import "./css/App.css";
 import "./css/document.scss";
 import { createBrowserHistory } from "history";
 import { Router } from "react-router-dom";

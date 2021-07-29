@@ -40,6 +40,11 @@
     font-size: 14px;
   }
 
+  .required:after {
+    content: " *";
+    color: red;
+  }
+
   .column-heading {
     background-color: #d3d3d3;
     border-bottom: 1px solid #808080;
@@ -121,22 +126,34 @@
         text-align: center;
       }
 
-      /* input {
-        border: none;
-        font-size: 16px;
-        text-align: center;
-      } */
-      input {
+      select,
+      textarea {
         padding: 0.5em 0.6em;
         display: inline-block;
         border: none; /* 1px solid #ccc; */
-        /* box-shadow: inset 0 1px 3px #ddd;
-        border-radius: 4px; */
+        box-shadow: inset 0 1px 3px #ddd;
+        border-radius: 4px;
         vertical-align: middle;
         box-sizing: border-box;
         max-width: 400px;
         font-size: 16px;
         text-align: center;
+        width: 100%;
+      }
+
+      /* textarea:required {
+        box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
+      } */
+
+      textarea:required:focus,
+      input:required:focus {
+        border: 1px solid red;
+        outline: none;
+      }
+
+      textarea:required:focus {
+        border: 1px solid red;
+        outline: none;
       }
     }
   }
