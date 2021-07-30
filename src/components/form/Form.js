@@ -18,7 +18,7 @@ const Form = ({ children, onSubmit, submitButtonName = "" }) => {
 };
 
 /**
- * Props required to create this particular card
+ * Props required to create this particular Form
  */
 Form.propTypes = {
   children: PropTypes.any.isRequired,

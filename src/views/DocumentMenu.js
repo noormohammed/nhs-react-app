@@ -7,6 +7,13 @@ import Page from "components/Page";
 // Using the modes defined in the environmental variables
 const { REACT_APP_DOC_MENU_MODE } = process.env;
 
+/**
+ * DocumentMenu Component creates a view for displaying given Document Actions
+ *
+ * @component
+ * @example
+ * return (<DocumentMenu />)
+ */
 const DocumentMenu = () => {
   const history = useHistory();
   const [documentInfo, setDocumentInfo] = useDocumentContext();

@@ -1,15 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
 import { useDocumentContext } from "contexts/DocumentContext";
 
 // Using the modes defined in the environmental variables
-const {
-  REACT_APP_DOC_READ_MODE,
-  REACT_APP_DOC_EDIT_MODE,
-  REACT_APP_DOC_EDIT_FIELD_MODE,
-} = process.env;
+const { REACT_APP_DOC_READ_MODE, REACT_APP_DOC_EDIT_MODE, REACT_APP_DOC_MENU_MODE } =
+  process.env;
 
+/**
+ * Header Component creates the topbar on the page.
+ *
+ * @component
+ * @example
+ * return (<Header title="Hello World!" />)
+ * @param {*} {title} any string
+ */
 const Header = ({ title }) => {
   const history = useHistory();
   const [documentInfo, setDocumentInfo] = useDocumentContext();
@@ -32,6 +38,7 @@ const Header = ({ title }) => {
     color: "#fff",
     fontSize: 18,
   };
+
   const handleEditDone = () => {
     // Update the mode before routing
     setDocumentInfo({
@@ -43,11 +50,11 @@ const Header = ({ title }) => {
 
   return (
     <div style={headerBarStyle}>
-      {/* Show back button only in document menu and edit views */}
+      {/* Show back button only in document menu and edit document detail views */}
       <div style={{ width: 50 }}>
         {history?.action &&
-          documentInfo?.mode !== REACT_APP_DOC_READ_MODE &&
-          documentInfo?.mode !== REACT_APP_DOC_EDIT_FIELD_MODE && (
+          (documentInfo?.mode === REACT_APP_DOC_MENU_MODE ||
+            documentInfo?.mode === REACT_APP_DOC_EDIT_MODE) && (
             <button
               onClick={() => {
                 history.go(-1);
@@ -80,6 +87,13 @@ const Header = ({ title }) => {
       </div>
     </div>
   );
+};
+
+/**
+ * Props required to create Header Component
+ */
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Header;
