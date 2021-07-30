@@ -8,7 +8,13 @@ import React from "react";
 const TextAreaField = ({ name = "", value = "", onChange, ...rest }) => {
   return (
     <div className="field">
-      <textarea name={name} onChange={onChange} value={value} {...rest} />
+      <textarea
+        data-testid={`textarea-field-${name}`}
+        name={name}
+        onChange={onChange}
+        value={value}
+        {...rest}
+      />
     </div>
   );
 };
@@ -21,7 +27,13 @@ const TextAreaField = ({ name = "", value = "", onChange, ...rest }) => {
 const SelectField = ({ name = "", value = "", onChange, options = [], ...rest }) => {
   return (
     <div className="field">
-      <select name={name} defaultValue={value} onChange={onChange} {...rest}>
+      <select
+        data-testid={`select-field-${name}`}
+        name={name}
+        defaultValue={value}
+        onChange={onChange}
+        {...rest}
+      >
         {options?.map((option) => (
           <option key={option.id} value={option.id}>
             {option.name}
