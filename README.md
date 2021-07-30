@@ -27,7 +27,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-Please note, all the core functionality tests are available in src/views/**test**/
+Please note, all the core functionality tests are available in src/views/**test**/\
 Covered as much as possible in the given time frame using Jest, React Testing Library & User-Event Testing Library.
 
 ## Usage
