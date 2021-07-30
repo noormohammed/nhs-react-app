@@ -10,6 +10,11 @@ import SampleDocumentDetails from "static/sample_document_details";
 // Using the modes defined in the environmental variables
 const { REACT_APP_DOC_READ_MODE, REACT_APP_DOC_EDIT_MODE } = process.env;
 
+/**
+ * DocumentSection creates a div block in the DocumentDetails view
+ *
+ * @param {*} object takes labelClass, label, testId, children (content) of the div block
+ */
 const DocumentSection = ({ labelClass, label, testId, children }) => {
   return (
     <div className="row">
@@ -21,13 +26,23 @@ const DocumentSection = ({ labelClass, label, testId, children }) => {
   );
 };
 
+/**
+ * DocumentDetails Component creates a simple details view
+ *
+ * It handles both Read-Only and Edit modes.
+ *
+ * @component
+ * @example
+ * return (<DocumentSection mode="read-only" />)
+ * @param {*} {mode} "read-only" | "edit"
+ */
 const DocumentDetails = ({ mode }) => {
   const history = useHistory();
   const [documentInfo, setDocumentInfo] = useDocumentContext();
 
   useEffect(() => {
     // Document details can be fetched / pulled here from an API
-    // For the sake this test, we are fetching from a json file
+    // For the sake of this test, we are fetching from a json file
     const getDocumentDetails = () => {
       if (!documentInfo || Object.entries(documentInfo).length <= 1) {
         setDocumentInfo({

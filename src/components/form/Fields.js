@@ -21,10 +21,20 @@ const TextAreaField = ({ name = "", value = "", onChange, ...rest }) => {
 
 /**
  * Creates a form select (single/multiple) field element
+ * For API response, "value" and "displays" can be configured here
+ *
  * @param {*} object list of select attributes
  * @returns HTML for select element with label
  */
-const SelectField = ({ name = "", value = "", onChange, options = [], ...rest }) => {
+const SelectField = ({
+  name = "",
+  value = "",
+  onChange,
+  options = [],
+  optionValueProp = "id", // value property can be configured here
+  optionDisplayProp = "name", // display property can be configured here
+  ...rest
+}) => {
   return (
     <div className="field">
       <select
@@ -35,8 +45,8 @@ const SelectField = ({ name = "", value = "", onChange, options = [], ...rest })
         {...rest}
       >
         {options?.map((option) => (
-          <option key={option.id} value={option.id}>
-            {option.name}
+          <option key={option[optionValueProp]} value={option[optionValueProp]}>
+            {option[optionDisplayProp]}
           </option>
         ))}
       </select>
