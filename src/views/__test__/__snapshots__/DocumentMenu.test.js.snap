@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DocumentMenu /> Tests renders DocumentMenu correctly 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      style="position: fixed; top: 0px; display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%; height: 50px; background-color: rgb(63, 80, 181); border-bottom: 1px solid #d8d8d8; font-weight: bold; padding: 0px 20px 0px 0px; box-sizing: border-box; color: rgb(255, 255, 255); font-size: 18px;"
+    >
+      <div
+        style="width: 50px;"
+      >
+        <button>
+          ⬅️
+        </button>
+      </div>
+      <div
+        style="margin-left: auto; margin-right: auto;"
+      >
+        Document Menu
+      </div>
+      <div
+        style="width: 50px;"
+      />
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="document"
+      >
+        <div
+          class="heading"
+        >
+          Below are the options available for this document.
+        </div>
+        <div
+          class="table"
+        >
+          <div
+            class="table-body"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="table-header label column column-heading"
+              >
+                MENU OPTIONS
+              </div>
+              <div
+                class="column"
+              >
+                <button
+                  class="menu-action-button"
+                  data-testid="edit-action-button"
+                >
+                  Edit
+                  <span
+                    class="caret right"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="display: flex; align-items: center; justify-content: center; width: 100%; height: 40px; background-color: rgb(51, 51, 51); color: rgb(255, 255, 255); position: fixed; bottom: 0px;"
+    >
+      Footer Menu
+    </div>
+  </div>
+</div>
+`;

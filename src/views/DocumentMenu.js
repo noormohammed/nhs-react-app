@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useDocumentContext } from "contexts/DocumentContext";
 import Page from "components/Page";
 
+// Using the modes defined in the environmental variables
+const { REACT_APP_DOC_MENU_MODE } = process.env;
+
 const DocumentMenu = () => {
   const history = useHistory();
   const [documentInfo, setDocumentInfo] = useDocumentContext();
@@ -11,7 +14,7 @@ const DocumentMenu = () => {
   useEffect(() => {
     setDocumentInfo({
       ...documentInfo,
-      mode: "menu",
+      mode: REACT_APP_DOC_MENU_MODE,
     });
     return () => {};
   }, []);
@@ -30,13 +33,14 @@ const DocumentMenu = () => {
                 MENU OPTIONS
               </div>
               <div className="column">
-                Edit
                 <button
-                  className="pull-right"
+                  className="menu-action-button"
                   onClick={() => {
                     history.push("/document-edit");
                   }}
+                  data-testid="edit-action-button"
                 >
+                  Edit
                   <span className="caret right"></span>
                 </button>
               </div>

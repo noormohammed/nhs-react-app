@@ -55,7 +55,7 @@
   .column {
     width: 50%;
     padding: 10px;
-    /* text-align: center; */
+    text-align: center;
   }
 
   @media only screen and (max-width: 700px) {
@@ -78,12 +78,14 @@
     font-size: 16px;
   }
 
+  a,
   button {
     background-color: transparent;
     border: none;
-    color: white;
-    font-size: 16px;
+    // color: white;
+    font-size: 20px;
     cursor: pointer;
+    width: 100%;
   }
 
   .pull-right {
@@ -96,6 +98,8 @@
     display: inline-block;
     border: 10px solid transparent;
     vertical-align: middle;
+    font-size: 20px;
+    float: right;
   }
   .right {
     border-left-color: black;
@@ -130,29 +134,21 @@
       textarea {
         padding: 0.5em 0.6em;
         display: inline-block;
-        border: none; /* 1px solid #ccc; */
+        border: none;
         box-shadow: inset 0 1px 3px #ddd;
         border-radius: 4px;
         vertical-align: middle;
         box-sizing: border-box;
-        max-width: 400px;
+        /* max-width: 400px; */
         font-size: 16px;
         text-align: center;
         width: 100%;
       }
 
-      /* textarea:required {
-        box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
-      } */
-
       textarea:required:focus,
-      input:required:focus {
+      select:required:focus {
         border: 1px solid red;
-        outline: none;
-      }
-
-      textarea:required:focus {
-        border: 1px solid red;
+        box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
         outline: none;
       }
     }
@@ -166,6 +162,7 @@
     border: transparent;
     text-decoration: none;
     border-radius: 2px;
+    cursor: pointer;
   }
 }
 @keyframes blinking {

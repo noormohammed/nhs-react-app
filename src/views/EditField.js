@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useHistory } from "react-router";
 
 import { useDocumentContext } from "contexts/DocumentContext";
@@ -9,13 +9,16 @@ import { TextAreaField, SelectField } from "components/form/Fields";
 const EditField = () => {
   const history = useHistory();
   const location = useLocation();
-  const fieldAttributes = location?.state;
+  const fieldData = location?.state;
   const [documentInfo, setDocumentInfo] = useDocumentContext();
+  const [fieldValue, setFieldValue] = useState(
+    documentInfo ? documentInfo[fieldData?.name] : ""
+  );
 
   const handleChange = (event) => {
     let targetValue;
 
-    if (fieldAttributes?.type === "select" && fieldAttributes?.multiple) {
+    if (fieldData?.type === "select" && fieldData?.multiple) {
       targetValue = Array.from(event.target.selectedOptions, (option) =>
         parseInt(option.value, 10)
       );
@@ -24,38 +27,36 @@ const EditField = () => {
       targetValue = event.target.value;
     }
 
-    setDocumentInfo({
-      ...documentInfo,
-      [event.target.name]: targetValue,
-    });
+    setFieldValue(targetValue);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    /* if (fieldAttributes.required) {
-      if (!documentInfo[fieldAttributes.name]) {
-        alert("This field is mandatory.");
-        return;
-      }
-    } */
-    history.goBack();
+    // Relying on default browser validations for this test app,
+    // as writing a validation library is beyond the scope of this test
+
+    if (!fieldValue && fieldData.required) return;
+
+    setDocumentInfo({
+      ...documentInfo,
+      [fieldData?.name]: fieldValue,
+    });
+
+    history?.goBack();
   };
 
   return (
-    <Page title={fieldAttributes.title || "Enter Value"}>
-      <Form onSubmit={handleSubmit} submitButtonName="Done">
-        {fieldAttributes.type === "textarea" ? (
-          <TextAreaField
-            onChange={handleChange}
-            value={documentInfo[fieldAttributes.name]}
-            {...fieldAttributes}
-          />
-        ) : (
+    <Page title={fieldData?.title || "Enter Value"}>
+      <Form onSubmit={handleSubmit} submitButtonName="Submit">
+        {fieldData?.type === "textarea" && (
+          <TextAreaField onChange={handleChange} value={fieldValue} {...fieldData} />
+        )}
+        {fieldData?.type === "select" && (
           <SelectField
             onChange={handleChange}
-            value={documentInfo[fieldAttributes.name]}
-            {...fieldAttributes}
+            value={documentInfo[fieldData?.name]}
+            {...fieldData}
           />
         )}
       </Form>
