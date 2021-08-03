@@ -9,6 +9,11 @@ Mobile-first react application which provides the following views to its users:
 
 Since its a mobile-first application, its best viewed on a phone browser, and it works across all platforms.
 
+As instructed in the task description to keep the use any libraries or frameworks to a minimum, I have used React Router library for navigation and routing requirements and everything else was developed using React features such as hooks.
+
+The application uses React Context for passing the document data accross all the views, and LocalStorage for storing and processing of the data since the development of a backend application was out of the scope of this task. However, if I had to create a simple backend application for this task, I would have created it using Express (Node.js) / FastAPI (python) with a PostgreSQL database. The payload would be in JSON format using RESTful APIs.
+
+
 # Getting Started with NHS React App
 
 ## Available Scripts
@@ -45,7 +50,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in the brows
 - User-Event Testing Library
 - HMTL5
 - CSS
-- SASS
+- Sass
 - ESLint
 - Babel
 - Prettier
